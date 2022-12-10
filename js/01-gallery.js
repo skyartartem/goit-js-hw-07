@@ -31,8 +31,11 @@ galleryContainerRef.addEventListener("click", openOriginalPic);
 function openOriginalPic(evt) {
     evt.preventDefault();
     // перевірка не працює (замість true і false видає пустий рядок)
-  //    const isImageEl = evt.target.classlist.contains(".gallery__image");
-  //    if (!isImageEl) { return };
+     const isImageEl = evt.target.classList.contains("gallery__image");
+    if (!isImageEl) {
+        console.log("1111");
+        return
+    };
  
   const instance = basicLightbox.create(`
         <img
