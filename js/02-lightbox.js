@@ -11,16 +11,17 @@ function creategalleryMarkup(items) {
     return items
         .map(({ preview, description, original }) => {
             return `
-  <a class="gallery__item" href="${original}">
-    <img class="gallery__image" src="${preview}" alt="${description}" />
-  </a>
-        `;
+                <a class="gallery__item" href="${original}">
+                     <img class="gallery__image"
+                     src="${preview}" 
+                     alt="${description}"
+                </a>
+            `;
         })
-        .join("");
+    .join("");
 }
 console.dir(galleryContainerRef);
-var lightbox = new SimpleLightbox(".gallery a", {
-    captions: true,
-    captionDelay: 250,
-    captionSelector: "alt",
+let lightbox = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250
 });

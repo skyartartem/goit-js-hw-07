@@ -2,8 +2,6 @@ import { galleryItems } from "./gallery-items.js";
 // Change code below this line
 
 const galleryContainerRef = document.querySelector(".gallery");
-// console.dir(galleryContainerRef);
-// console.log(galleryItems);
 
 const galleryMarkup = creategalleryMarkup(galleryItems);
 
@@ -31,20 +29,31 @@ function creategalleryMarkup(items) {
 galleryContainerRef.addEventListener("click", openOriginalPic);
 
 function openOriginalPic(evt) {
-  evt.preventDefault();
+    evt.preventDefault();
+    // перевірка не працює (замість true і false видає пустий рядок)
   //    const isImageEl = evt.target.classlist.contains(".gallery__image");
   //    if (!isImageEl) { return };
-//   console.dir(evt.target.dataset.source);
-  // console.log(evt.target.classlist.contains(".gallery__image"));
-
+ 
   const instance = basicLightbox.create(`
-	<img
-      class="gallery__image"
-      src="${evt.target.dataset.source}"
-      alt="${evt.target.alt}"
-    />
-`);
+        <img
+        class="gallery__image"
+        src="${evt.target.dataset.source}"
+        alt="${evt.target.alt}"
+        />
+    `);
 
-  instance.show();
+    instance.show();
+
+    const instanceRef = instance
+    console.dir(instanceRef)
+
+    window.addEventListener("keydown", closeWindow);
+
+    function closeWindow(evt) {
+        console.log(evt.code)
+        if (evt.code == "Escape") {
+            instance.close(window.removeEventListener("keydown", closeWindow));
+            
+        }
+    }
 }
-
