@@ -34,7 +34,7 @@ function openOriginalPic(evt) {
   evt.preventDefault();
   //    const isImageEl = evt.target.classlist.contains(".gallery__image");
   //    if (!isImageEl) { return };
-  console.dir(evt.target.dataset.source);
+//   console.dir(evt.target.dataset.source);
   // console.log(evt.target.classlist.contains(".gallery__image"));
 
   const instance = basicLightbox.create(`
