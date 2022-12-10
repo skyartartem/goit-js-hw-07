@@ -20,7 +20,8 @@ function creategalleryMarkup(items) {
         })
     .join("");
 }
-console.dir(galleryContainerRef);
+// console.dir(galleryContainerRef);
+
 let lightbox = new SimpleLightbox(".gallery a", {
   captionsData: "alt",
   captionDelay: 250
